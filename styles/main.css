@@ -47,10 +47,16 @@
     display: flex;
     background-color: aquamarine;
 }
-.draw-table-square {
+
+.square {
     width: 20px;
     height: 20px;
-    background-color: bisque;
     flex : 1 ;
     border: 1px black solid;
+}
+.white-background {
+    background-color: bisque;
+}
+.black-background {
+    background-color: rgb(24, 24, 24); ;
 }
