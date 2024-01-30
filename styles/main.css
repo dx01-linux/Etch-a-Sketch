@@ -27,11 +27,8 @@
     border-bottom: 2px black solid;
 }
 
-#main-content {
-    height: 600px;
-}
 #draw-table {
-    flex : 1;
+    flex : 2;
 }
 #draw-table-space {
     width: 75%;
@@ -45,7 +42,6 @@
 }
 .draw-table-rows {
     display: flex;
-    background-color: aquamarine;
 }
 
 .square {
@@ -59,4 +55,37 @@
 }
 .black-background {
     background-color: rgb(24, 24, 24); ;
+}
+
+#aside-panel {
+    flex : 1 ;
+}
+#aside-panel-color-selected {
+    margin : 5% 20% ;
+} 
+#selected-color{
+    background-color: bisque;
+    width: 60px;
+    height: 60px;
+}
+
+#aside-panel-color-selector{
+    margin : 5% 20% ;
+}
+#aside-panel-color-selector ul {
+    list-style-type: none;
+}
+.colors{
+    height: 60px;
+    width: 60px;
+}
+#black {
+    background-color: black;
+    color : white;
+}
+#red {
+    background-color: red;
+}
+#white {
+    background-color: antiquewhite;
 }
