@@ -1,6 +1,47 @@
 
 const attachRows = document.querySelector('#attach-rows');
+const colors = document.querySelectorAll('.colors');
+const selectedColor = {
+    tag : document.querySelector('#selected-color') ,
+    value : 'bisque' ,
+    setBackgroundColor : function (color) {
+        this.value = color ;
+        this.tag.style.backgroundColor = this.value ;
+    }
+}
+const squares = {
+    tags : function () {
+        return document.querySelectorAll('.square');
+    } , 
+}
+setUpTable(16, 16);
 
+// change selectedColor's background color and and this.value's value
+colors.forEach(color=> {
+    color.addEventListener('click' , e=> {
+        let backgroundColors= ['bisque' , 'black' , 'red'];
+        switch (color.innerText ){
+            case 'white' :
+                selectedColor.setBackgroundColor(backgroundColors[0]);
+                break ;
+            case 'black' :
+                selectedColor.setBackgroundColor(backgroundColors[1]);
+                break;
+            case 'red' :
+                selectedColor.setBackgroundColor(backgroundColors[2]);
+                break;
+        }
+    })
+})
+
+//change color of a single square using actual selectedColor.value's value
+squares.tags().forEach(tag => {
+    tag.addEventListener('click' , e=>{
+        tag.style.backgroundColor = selectedColor.value ;
+    })
+})
+
+// create rows and fill them with squares , squares have a define square class
 function setUpTable(rowsNumber= 16 , elementsPerRow = 16){
     attachRows.innerText = '';
     let rows = [];
@@ -9,7 +50,7 @@ function setUpTable(rowsNumber= 16 , elementsPerRow = 16){
         row.setAttribute('class' , 'draw-table-rows');
         for(let i = 0 ; i <= elementsPerRow -1 ; i++){
             let box = document.createElement('div');
-            box.setAttribute('class' , 'white-background square');
+            box.setAttribute('class' , 'square');
             row.appendChild(box);
         }
         rows.push(row);  
@@ -18,34 +59,4 @@ function setUpTable(rowsNumber= 16 , elementsPerRow = 16){
     rows.forEach(row=>{
         attachRows.appendChild(row);
     });
-    return document.querySelectorAll('.square');
 }    
-
-function swampToWhite(target){
-    if(target.getAttribute('class') == 'black-background square'){
-        target.setAttribute('class' , 'white-background square');
-        target.addEventListener('click' , swampToBlack(target))
-    }
-}
-function swampToBlack(target){
-    if(target.getAttribute('class') == 'white-background square'){
-        target.setAttribute('class' , 'black-background square');
-        target.addEventListener('click' , swampToWhite(target))
-    }
-}
-function swamp(target){
-    if(target.getAttribute('class') == 'black-background square'){
-        swampToWhite(target);
-    } else if(target.getAttribute('class') == 'white-background square'){
-        swampToBlack(target);
-    }
-}
-const squares = setUpTable(16 , 16).forEach(square => {
-    if(square.getAttribute('class') == 'white-background square'){
-        square.addEventListener('click' , e=>{
-                swamp(square);
-        });
-    }
-});
-
-
