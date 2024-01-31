@@ -28,35 +28,27 @@
 }
 
 #draw-table {
-    flex : 2;
+    /* flex : 2; only when aside */
+    flex : 1 ;
 }
 #draw-table-space {
-    width: 75%;
-    align-items: flex-start;
-    > * {
-        margin-top: 20px;
-    }
+    padding: 0% 20%;
 }
-#attach-rows {
-    justify-content: flex-start;
-}
+
 .draw-table-rows {
     display: flex;
+    height: 15px;
+    
 }
 
 .square {
-    width: 20px;
-    height: 20px;
     flex : 1 ;
     border: 1px black solid;
 }
-.white-background {
-    background-color: bisque;
-}
-.black-background {
-    background-color: rgb(24, 24, 24); ;
-}
 
+/* 
+
+!! Old aside Section Rules
 #aside-panel {
     flex : 1 ;
 }
@@ -88,4 +80,4 @@
 }
 #white {
     background-color: antiquewhite;
-}
+} */
