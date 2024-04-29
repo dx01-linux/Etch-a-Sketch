@@ -1,0 +1,89 @@
+*,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+:root {
+    --hero-background: rgb(218, 69, 69);
+    --aside-background: rgb(230, 220, 220);
+    font-size: 10px;
+}
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+        "hero hero hero hero hero"
+        "hero hero hero hero hero"
+        "aside aside canvas canvas canvas"
+        "aside aside canvas canvas canvas"
+        "aside aside canvas canvas canvas";
+}
+#wrapper > :nth-child(n){
+    border : 1px solid black;
+}
+
+#hero {
+    grid-area: hero;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--hero-background);
+    font-size: 4rem;
+}
+
+#aside {
+    grid-area: aside;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "bttns"
+        "colors"
+        "colors";
+    background-color: var(--aside-background);
+
+    i {
+        font-size: 2.5rem;
+    }
+}
+
+/* panel bttns */
+#aside :first-child {
+    grid-area: bttns;
+}
+
+/* color palette */
+#aside :last-child {
+    grid-area: colors;
+}
+
+#aside > :first-child ,
+#aside > :last-child {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    ul {
+        list-style: none;
+        li{
+            margin: 2px 0px;
+        }
+    }
+}
+
+#canvas {
+    grid-area: canvas;
+    background-color: var(--aside-background);
+    display: grid;
+    grid-template-columns: repeat(25 , 1fr);
+    grid-template-rows: repeat(25 , 1fr);
+}
+#canvas > .title{
+    border : 1px solid black ;
+}
