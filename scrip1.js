@@ -51,13 +51,14 @@ canvas.addTitles((25*25));
 
 //events
 
-//color palette 
+//color palette -> select a color
 document.querySelector('#color-palette').addEventListener("click" , eve =>{
     let target = eve.target ;
     if(target.className == 'color'){
         colorPalette.select(target)     
     }
 });
+// canvas -> color a title
 document.querySelector("#canvas").addEventListener("click" , eve=>{
     let target = eve.target;
     if(target.className == 'title'){
@@ -67,13 +68,16 @@ document.querySelector("#canvas").addEventListener("click" , eve=>{
         }
     }
 });
+// bttn-panel : 
 document.querySelector('#bttn-panel').addEventListener("click" , eve => {
     let target = eve.target;
     switch(target.innerText){
         case ' Delete' : 
+        //clean canvas
             canvas.cleanTitles();
             break;
         case ' Erase' :
+        //erase mode
             canvas.erase();
             break;
     }
