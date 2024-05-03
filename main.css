@@ -7,7 +7,7 @@ body {
 
 :root {
     --hero-background: rgb(218, 69, 69);
-    --aside-background: rgb(230, 220, 220);
+    --aside-background: black;
     font-size: 10px;
 }
 
@@ -47,6 +47,7 @@ body {
         "colors"
         "colors";
     background-color: var(--aside-background);
+    color: whitesmoke;
 
     i {
         font-size: 2.5rem;
@@ -54,9 +55,19 @@ body {
 }
 
 /* panel bttns */
-#aside :first-child {
+#aside > :first-child {
     grid-area: bttns;
+    /* del bttn */
+    ul > :first-child {
+        background-color: red;
+        color: black;
+    } 
+    ul > :nth-child(2) {
+        background-color: blue;
+        color: black;
+    }       
 }
+
 
 /* color palette */
 #aside :last-child {
@@ -67,7 +78,6 @@ body {
 #aside > :last-child {
     display: flex;
     flex-flow: column;
-    align-items: center;
     justify-content: center;
     ul {
         list-style: none;
@@ -79,7 +89,7 @@ body {
 
 #canvas {
     grid-area: canvas;
-    background-color: var(--aside-background);
+    background-color: whitesmoke ;
     display: grid;
     grid-template-columns: repeat(25 , 1fr);
     grid-template-rows: repeat(25 , 1fr);
